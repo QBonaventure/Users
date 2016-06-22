@@ -38,11 +38,11 @@ class Module
 {
     public function onBootstrap(MvcEvent $e)
     {
-        $this->initSession(array(
-//         		'remember_me_seconds' => 1800,
-        		'use_cookies' => true,
-        		'cookie_httponly' => true,
-        ), $e->getApplication()->getServiceManager());
+//         $this->initSession(array(
+// //         		'remember_me_seconds' => 1800,
+//         		'use_cookies' => true,
+//         		'cookie_httponly' => true,
+//         ), $e->getApplication()->getServiceManager());
         $this->initAcl($e);
 //         $e->getApplication()->getEventManager()->attach('route', array($this, 'authPreDispatch')); //Authentication check
     	$e->getApplication()->getEventManager()->attach('route', array($this, 'checkAcl'));
@@ -83,27 +83,27 @@ class Module
     	return false;
     }
 
-    public function initSession($config, \Zend\ServiceManager\ServiceManager $sm)
-	{
-	    $sessionConfig = new SessionConfig();
-	    $sessionConfig->setOptions($config);
-	    $sessionManager = new SessionManager($sessionConfig);
-		$sessionManager->getValidatorChain()
-			->attach('session.validate',
-						array(new HttpUserAgent(), 'isValid'));
-		$sessionManager->getValidatorChain()
-		    ->attach('session.validate',
-		             array(new RemoteAddr(), 'isValid'));
+//     public function initSession($config, \Zend\ServiceManager\ServiceManager $sm)
+// 	{
+// 	    $sessionConfig = new SessionConfig();
+// 	    $sessionConfig->setOptions($config);
+// 	    $sessionManager = new SessionManager($sessionConfig);
+// 		$sessionManager->getValidatorChain()
+// 			->attach('session.validate',
+// 						array(new HttpUserAgent(), 'isValid'));
+// 		$sessionManager->getValidatorChain()
+// 		    ->attach('session.validate',
+// 		             array(new RemoteAddr(), 'isValid'));
 
-		$dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
-		$tableGateway = new TableGateway(new TableIdentifier('sessions', 'users'), $dbAdapter);
-		$saveHandler  = new DbTableGateway($tableGateway, new DbTableGatewayOptions());
+// 		$dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
+// 		$tableGateway = new TableGateway(new TableIdentifier('sessions', 'users'), $dbAdapter);
+// 		$saveHandler  = new DbTableGateway($tableGateway, new DbTableGatewayOptions());
 
-		$sessionManager->setSaveHandler($saveHandler);
+// 		$sessionManager->setSaveHandler($saveHandler);
 
-	    $sessionManager->start();
-	    Container::setDefaultManager($sessionManager);
-	}
+// 	    $sessionManager->start();
+// 	    Container::setDefaultManager($sessionManager);
+// 	}
 	
 
 	public function initAcl(MvcEvent $e)
@@ -182,15 +182,15 @@ class Module
 				'Users\Model\AuthStorage' => function ($sm) {
 					return new Session();
 				},
-				'AuthService' => function ($sm) {
-	                $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
-	                $dbTableAuthAdapter  = new DbTable($dbAdapter, 
-	                                          new TableIdentifier('users', 'users'),'username','password');
-	                $authService = new AuthenticationService();
-	                $authService->setAdapter($dbTableAuthAdapter);
-					$authService->setStorage($sm->get('Users\Model\AuthStorage'));
-	                return $authService;
-				},
+// 				'AuthService' => function ($sm) {
+// 	                $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
+// 	                $dbTableAuthAdapter  = new DbTable($dbAdapter, 
+// 	                                          new TableIdentifier('users', 'users'),'username','password');
+// 	                $authService = new AuthenticationService();
+// 	                $authService->setAdapter($dbTableAuthAdapter);
+// 					$authService->setStorage($sm->get('Users\Model\AuthStorage'));
+// 	                return $authService;
+// 				},
 			),
 		);
 	}
