@@ -1,7 +1,6 @@
 {
     "name": "qbonaventure/Users",
     "license": "BSD-3-Clause",
-<<<<<<< HEAD
     "authors": 
     [
     	{
@@ -14,18 +13,4 @@
             "QBonaventure\\Users\\": "src/"
         }
     },
-=======
-    "autoload": {
-        "psr-4": {
-            "QBonaventure\\Users\\": "src/"
-        }
-    },
-    "require": {
-        "php": "^7.0",
-    },
-    "require-dev": {
-    },
-    "minimum-stability": "dev",
->>>>>>> branch 'master' of https://github.com/QBonaventure/Users.git
-    "prefer-stable": true,
 }
