@@ -7,7 +7,7 @@
     		"name": "Quentin Bonaventure"
     	}
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "dev-master",
     "autoload": {
         "psr-4": {
             "QBonaventure\\Users\\": "src/"
