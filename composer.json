@@ -1,6 +1,10 @@
 {
-    "name": "qbonaventure/Users",
+    "name": "qbonaventure/users",
     "license": "BSD-3-Clause",
+    "keywords": [
+        "zf2",
+        "authentication"
+    ],
     "authors": 
     [
     	{
@@ -13,4 +17,9 @@
             "QBonaventure\\Users\\": "src/"
         }
     },
+    "require": {
+        "php": "^5.3 || ^7.0"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
 }
