@@ -1,6 +1,6 @@
 <?php
-return array(
-	'tableName' => null,
-	'identityColumn' => null,
-			'$credentialColumn' => null,
-);
+return [
+// 	'tableName' => null,
+// 	'identityColumn' => null,
+// 	'$credentialColumn' => null,
+];
