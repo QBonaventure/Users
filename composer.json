@@ -1,6 +1,10 @@
 {
     "name": "qbonaventure/users",
     "license": "BSD-3-Clause",
+    "keywords": [
+        "zf2",
+        "authentication"
+    ],
     "authors": 
     [
     	{
@@ -12,5 +16,8 @@
         "psr-4": {
             "QBonaventure\\Users\\": "src/"
         }
+    }
+    "require": {
+        "php": "^7.0"
     }
 }
