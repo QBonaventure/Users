@@ -16,7 +16,7 @@
         "psr-4": {
             "QBonaventure\\Users\\": "src/"
         }
-    }
+    },
     "require": {
         "php": "^7.0"
     }
